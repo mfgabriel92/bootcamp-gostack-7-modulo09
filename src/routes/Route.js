@@ -3,9 +3,10 @@ import PropTypes, { element, func } from 'prop-types'
 import { Route, Redirect } from 'react-router-dom'
 import Auth from '~/pages/_layout/Auth'
 import Default from '~/pages/_layout/Default'
+import store from '~/store'
 
 function RouteWrapper({ component: Component, isPrivate, ...rest }) {
-  const isSigned = false
+  const { isSigned } = store.getState().auth
 
   if (!isSigned && isPrivate) {
     return <Redirect to="/" />

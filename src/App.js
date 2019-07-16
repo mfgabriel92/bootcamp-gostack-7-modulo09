@@ -1,10 +1,10 @@
+import './config/reactotron'
 import React from 'react'
 import { Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import history from './services/history'
 import Routes from './routes'
 import Style from './styles/App'
-import './config/reactotron'
 import store from './store'
 
 function App() {
