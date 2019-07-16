@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { darken } from 'polished'
+import { darken, lighten } from 'polished'
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -56,6 +56,10 @@ export const Content = styled.div`
 
       &:hover {
         background: ${darken(0.1, '#3b9eff')};
+      }
+
+      &:disabled {
+        background: ${lighten(0.1, '#3b9eff')};
       }
     }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Form, Input } from '@rocketseat/unform'
 import { signIn } from '~/store/auth/actions'
@@ -8,6 +8,7 @@ import logo from '~/assets/logo.svg'
 
 function SignIn() {
   const dispatch = useDispatch()
+  const isLoading = useSelector(state => state.auth.isLoading)
 
   function handleOnSubmit({ email, password }) {
     dispatch(signIn(email, password))
@@ -24,7 +25,9 @@ function SignIn() {
           type="password"
           placeholder="Your secret password"
         />
-        <button type="submit">Enter</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Loading...' : 'Enter'}
+        </button>
         <Link to="/signup">No account yet? Create one now for free</Link>
       </Form>
     </>
