@@ -36,6 +36,15 @@ export const Content = styled.div`
       }
     }
 
+    span {
+      color: #fff;
+      flex: 1;
+      margin-bottom: 10px;
+      background: #ff8f8f;
+      padding: 3px 10px;
+      margin-top: -10px;
+    }
+
     button {
       height: 44px;
       background: #3b9eff;
