@@ -5,7 +5,7 @@ import Auth from '~/pages/_layout/Auth'
 import Default from '~/pages/_layout/Default'
 
 function RouteWrapper({ component: Component, isPrivate, ...rest }) {
-  const isSigned = true
+  const isSigned = false
 
   if (!isSigned && isPrivate) {
     return <Redirect to="/" />
@@ -15,7 +15,7 @@ function RouteWrapper({ component: Component, isPrivate, ...rest }) {
     return <Redirect to="/dashboard" />
   }
 
-  const Layout = isSigned ? Auth : Default
+  const Layout = isSigned ? Default : Auth
 
   return (
     <Route
