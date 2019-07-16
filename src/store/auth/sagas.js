@@ -20,6 +20,7 @@ export function* signIn({ payload: { email, password } }) {
     const { token, user } = data
     yield put(signInSuccess(token, user))
 
+    toast.success(`Welcome, ${user.name}`)
     history.push('/dashboard')
   } catch (e) {
     toast.error('Wrong credentials')
@@ -27,4 +28,24 @@ export function* signIn({ payload: { email, password } }) {
   }
 }
 
-export default all([takeLatest(types.SIGN_IN, signIn)])
+export function* signUp({ payload: { name, email, password } }) {
+  try {
+    yield call(api.post, 'users', {
+      name,
+      email,
+      password,
+      provider: true,
+    })
+
+    toast.success('Account successfully created. You may login now.')
+    history.push('/dashboard')
+  } catch (e) {
+    toast.error('Something went wrong')
+    yield put(failure())
+  }
+}
+
+export default all([
+  takeLatest(types.SIGN_IN, signIn),
+  takeLatest(types.SIGN_UP, signUp),
+])

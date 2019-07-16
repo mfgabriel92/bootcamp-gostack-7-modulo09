@@ -20,6 +20,17 @@ export function signInSuccess(token, user) {
   }
 }
 
+export function signUp(name, email, password) {
+  return {
+    type: types.SIGN_UP,
+    payload: {
+      name,
+      email,
+      password,
+    },
+  }
+}
+
 export function failure() {
   return {
     type: types.FAILURE,

@@ -1,18 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { Form, Input } from '@rocketseat/unform'
-import schema from '~/utils/validations/signup'
-import logo from '~/assets/logo.svg'
+import { signUp } from '../../store/auth/actions'
+import schema from '../../utils/validations/signup'
+import logo from '../../assets/logo.svg'
 
 function SignUp() {
-  function handleOnSubmit(data) {}
+  const dispatch = useDispatch()
+  const isLoading = useSelector(state => state.auth.isLoading)
+
+  function handleOnSubmit({ name, email, password }) {
+    dispatch(signUp(name, email, password))
+  }
 
   return (
     <>
       <img src={logo} alt="GoBarber" />
 
       <Form schema={schema} onSubmit={handleOnSubmit}>
-        <Input name="fullName" type="text" placeholder="Full name" />
+        <Input name="name" type="text" placeholder="Full name" />
         <Input name="email" type="email" placeholder="Your e-mail" />
         <Input
           name="password"
@@ -24,7 +31,9 @@ function SignUp() {
           type="password"
           placeholder="Your secret password (again)"
         />
-        <button type="submit">Register</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Loading...' : 'Register'}
+        </button>
         <Link to="/">Already have an account? Enter now</Link>
       </Form>
     </>

@@ -2,9 +2,9 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Form, Input } from '@rocketseat/unform'
-import { signIn } from '~/store/auth/actions'
-import schema from '~/utils/validations/signin'
-import logo from '~/assets/logo.svg'
+import { signIn } from '../../store/auth/actions'
+import schema from '../../utils/validations/signin'
+import logo from '../../assets/logo.svg'
 
 function SignIn() {
   const dispatch = useDispatch()

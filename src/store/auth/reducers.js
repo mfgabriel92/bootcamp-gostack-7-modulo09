@@ -15,6 +15,7 @@ export default function auth(state = INITIAL_STATE, action) {
         break
       case types.SIGN_IN_SUCCESS:
         draft.me = action.payload.user
+        draft.isSigned = true
         draft.isLoading = false
         break
       case types.FAILURE:
