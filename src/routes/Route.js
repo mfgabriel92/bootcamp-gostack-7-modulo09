@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes, { element, func } from 'prop-types'
 import { Route, Redirect } from 'react-router-dom'
-import Auth from '../pages/_layout/Auth'
-import Default from '../pages/_layout/Default'
+import Auth from '~/pages/_layout/Auth'
+import Default from '~/pages/_layout/Default'
 
 function RouteWrapper({ component: Component, isPrivate, ...rest }) {
   const isSigned = true
