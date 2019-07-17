@@ -32,6 +32,7 @@ module.exports = {
     'react-native/no-raw-text': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/button-has-type': 'off',
     camelcase: 'off',
   },
   settings: {

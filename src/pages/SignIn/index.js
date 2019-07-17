@@ -5,6 +5,7 @@ import { Form, Input } from '@rocketseat/unform'
 import { signIn } from '../../store/auth/actions'
 import schema from '../../utils/validations/signin'
 import logo from '../../assets/logo.svg'
+import Button from '../../components/Button'
 
 function SignIn() {
   const dispatch = useDispatch()
@@ -25,9 +26,12 @@ function SignIn() {
           type="password"
           placeholder="Your secret password"
         />
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? 'Loading...' : 'Enter'}
-        </button>
+        <Button
+          type="submit"
+          disabled={isLoading}
+          text={isLoading ? 'Loading...' : 'Enter'}
+          color="#3b9eff"
+        />
         <Link to="/signup">No account yet? Create one now for free</Link>
       </Form>
     </>

@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.header`
   height: 64px;
   background: #fff;
   padding: 0 30px;
-  flex: 1;
 `
 
 export const Content = styled.div`

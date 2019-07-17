@@ -41,9 +41,12 @@ function Notification() {
 
   return (
     <Container>
-      <Badge onClick={() => setIsVisible(!isVisible)} hasUnread={hasUnread}>
+      <Badge
+        onClick={() => setIsVisible(!isVisible)}
+        hasUnread={hasUnread.length > 0}
+      >
         <MdNotifications color="#6004e0" size={24} />
-        <span>{hasUnread.length}</span>
+        {hasUnread.length > 0 && <span>{hasUnread.length}</span>}
       </Badge>
 
       <Notifications isVisible={isVisible}>
