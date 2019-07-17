@@ -44,6 +44,7 @@ export const Notifications = styled.ul`
   left: calc(50% - 130px);
   top: calc(100% + 30px);
   background: rgba(0, 0, 0, 0.6);
+  display: ${props => !props.isVisible && 'none'};
 
   &::before {
     content: '';
@@ -59,14 +60,16 @@ export const Notifications = styled.ul`
 `
 
 export const Scroll = styled(Scrollbar)`
-  max-height: 260px;
-  padding: 15px 5px;
+  max-height: 280px;
 `
 
 export const Note = styled.li`
   color: #fff;
-  padding: 5px 15px;
+  padding: 15px 20px;
   transition: background 0.2s;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 
   & + li {
     padding-top: 10px;
@@ -78,18 +81,34 @@ export const Note = styled.li`
     line-height: 18px;
   }
 
-  time {
-    font-size: 11px;
-    color: #ccc;
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    time {
+      font-size: 11px;
+      color: #ccc;
+    }
+
+    button {
+      border: 0;
+      background: none;
+      color: #62b0cc;
+      font-size: 12px;
+
+      &:hover {
+        color: #6004e0;
+      }
+    }
   }
 
   &:hover {
-    cursor: pointer;
     background: rgba(0, 0, 0, 0.3);
   }
 
   ${props =>
-    props.unread &&
+    props.isUnread &&
     css`
       background: rgba(0, 0, 0, 0.7);
     `}
