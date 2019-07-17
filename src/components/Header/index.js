@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Notification from '../Notification'
 import { Container, Content, Me } from './styles'
 import logo from '../../assets/logo-colored.png'
 import noImage from '../../assets/no-image.png'
@@ -17,6 +18,8 @@ function Header() {
         </nav>
 
         <aside>
+          <Notification />
+
           <Me>
             <div>
               <strong>{me.name}</strong>
