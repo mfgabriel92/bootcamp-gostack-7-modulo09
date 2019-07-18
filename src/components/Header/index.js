@@ -7,7 +7,7 @@ import logo from '../../assets/logo-colored.png'
 import noImage from '../../assets/no-image.png'
 
 function Header() {
-  const me = useSelector(state => state.auth.me)
+  const me = useSelector(state => state.user.me)
 
   return (
     <Container>

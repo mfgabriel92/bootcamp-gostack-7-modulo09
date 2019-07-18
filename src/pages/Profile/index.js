@@ -2,26 +2,22 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Form, Input } from '@rocketseat/unform'
 import { Container } from './styles'
+import { updateUser } from '../../store/user/actions'
 import Button from '../../components/Button'
 
 function Profile() {
-  const me = useSelector(state => state.auth.me)
+  const me = useSelector(state => state.user.me)
   const dispatch = useDispatch()
 
-  function handleOnSubmit() {
-    dispatch()
+  function handleOnSubmit(data) {
+    dispatch(updateUser(data))
   }
 
   return (
     <Container>
-      <Form onSubmit={handleOnSubmit}>
-        <Input name="name" value={me.name} placeholder="Full name" />
-        <Input
-          type="email"
-          value={me.email}
-          name="email"
-          placeholder="Your e-mail address"
-        />
+      <Form initialData={me} onSubmit={handleOnSubmit}>
+        <Input name="name" placeholder="Full name" />
+        <Input type="email" name="email" placeholder="Your e-mail address" />
 
         <hr />
 
