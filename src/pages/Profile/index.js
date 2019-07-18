@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Form, Input } from '@rocketseat/unform'
 import { Container } from './styles'
 import { updateUser } from '../../store/user/actions'
+import { logoff } from '../../store/auth/actions'
 import Button from '../../components/Button'
 
 function Profile() {
@@ -40,7 +41,11 @@ function Profile() {
         <Button type="submit" color="#3b9eff" text="Update" />
       </Form>
 
-      <Button color="#F64C75" text="Logoff" />
+      <Button
+        color="#F64C75"
+        text="Logoff"
+        onClick={() => dispatch(logoff())}
+      />
     </Container>
   )
 }

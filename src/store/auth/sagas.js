@@ -57,8 +57,14 @@ export function* signUp({ payload: { name, email, password } }) {
   }
 }
 
+export function logoff() {
+  history.push('/')
+  toast.warn('You have logged off')
+}
+
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest(types.SIGN_IN, signIn),
   takeLatest(types.SIGN_UP, signUp),
+  takeLatest(types.LOGOFF, logoff),
 ])

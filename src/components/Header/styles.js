@@ -71,7 +71,7 @@ export const Me = styled.div`
   }
 
   img {
-    width: 34px;
+    width: 44px;
     border-radius: 50%;
   }
 `

@@ -15,6 +15,9 @@ export default function user(state = INITIAL_STATE, action) {
       case types.UPDATE_USER_SUCCESS:
         draft.me = action.payload.me
         break
+      case authTypes.LOGOFF:
+        draft.me = null
+        break
       default:
     }
   })

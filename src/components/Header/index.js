@@ -25,7 +25,7 @@ function Header() {
               <strong>{me.name}</strong>
               <Link to="/profile">Profile</Link>
             </div>
-            <img src={me.avatar ? me.avatar : noImage} alt="" />
+            <img src={me.avatar ? me.avatar.url : noImage} alt="" />
           </Me>
         </aside>
       </Content>

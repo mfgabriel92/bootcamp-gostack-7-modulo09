@@ -19,6 +19,10 @@ export default function auth(state = INITIAL_STATE, action) {
         draft.isSigned = true
         draft.isLoading = false
         break
+      case types.LOGOFF:
+        draft.token = null
+        draft.isSigned = false
+        break
       case types.FAILURE:
         draft.isLoading = false
         break

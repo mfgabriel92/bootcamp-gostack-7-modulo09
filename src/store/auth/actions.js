@@ -31,6 +31,12 @@ export function signUp(name, email, password) {
   }
 }
 
+export function logoff() {
+  return {
+    type: types.LOGOFF,
+  }
+}
+
 export function failure() {
   return {
     type: types.FAILURE,
