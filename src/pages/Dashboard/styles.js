@@ -29,6 +29,20 @@ export const Container = styled.div`
     grid-gap: 15px;
     margin-top: 30px;
   }
+
+  > button {
+    border: 0;
+    background: none;
+    color: #fff;
+    align-self: center;
+    margin-top: 5px;
+    font-size: 12px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 `
 
 export const Schedule = styled.li`
