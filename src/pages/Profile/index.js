@@ -14,6 +14,10 @@ function Profile() {
     dispatch(updateUser(data))
   }
 
+  function handleLogoff() {
+    dispatch(logoff())
+  }
+
   return (
     <Container>
       <Form initialData={me} onSubmit={handleOnSubmit}>
@@ -41,11 +45,7 @@ function Profile() {
         <Button type="submit" color="#3b9eff" text="Update" />
       </Form>
 
-      <Button
-        color="#F64C75"
-        text="Logoff"
-        onClick={() => dispatch(logoff())}
-      />
+      <Button color="#F64C75" text="Logoff" onClick={handleLogoff} />
     </Container>
   )
 }
